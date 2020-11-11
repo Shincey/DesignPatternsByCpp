@@ -1,10 +1,24 @@
 
-demo : main.o
-	g++ -o demo main.o
+CC = g++
+OBJ := main.o
+TOP_DIR := $(PWD)
+OBJ_DIR := $(TOP_DIR)/obj
+BIN_DIR := $(TOP_DIR)/bin
+SUB_DIR:=src/Factory
 
-main.o : main.cpp
-	g++ -c main.cpp
+export CC OBJ OBJ_DIR TOP_DIR BIN_DIR
+
+all: CHECKDIR $(SUB_DIR)
+
+CHECKDIR:
+	mkdir -p $(SUB_DIR) $(BIN_DIR)
+
+$(SUB_DIR): ECHO
+	make -C $@
+ECHO:
+	@echo $(SUB_DIR)
+	@echo begin compile
+
 
 clean :
-	rm demo main.o
-	
+	rm -rf $(OBJ_DIR)/*.o $(BIN_DIR)	
