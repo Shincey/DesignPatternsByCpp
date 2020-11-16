@@ -4,7 +4,7 @@ OBJ := main.o
 TOP_DIR := $(PWD)
 OBJ_DIR := $(TOP_DIR)/obj
 BIN_DIR := $(TOP_DIR)/bin
-SUB_DIR:=src/Factory
+SUB_DIR:=src/Factory src/Bridge
 
 export CC OBJ OBJ_DIR TOP_DIR BIN_DIR
 
