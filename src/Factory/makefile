@@ -1,9 +1,3 @@
 
-demo: factory.o
-	$(CC) -o demo factory.o
-
-factory.o: factory.hpp factory.cpp
-	$(CC) -c factory.cpp
-
-clean:
-	rm *.o demo
+factory: factory.hpp factory.cpp
+	$(CC) -o ../../bin/factory factory.cpp
